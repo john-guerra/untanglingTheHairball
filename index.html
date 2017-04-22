@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Untangling the Hairball</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento">
+    <meta charset="utf-8">
+    <meta name="author" content="John Alexis Guerra Gomez">
+    <meta name="description" content="Untangling the Hairball, John Alexis Guerra Gómezs openvis 2017 talk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <style>
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal h4 {
+        font-family: 'Oswald', serif;
+      }
+      .reveal {
+      
+        font-family: 'Quattrocento', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Untangling the Hairball</h1>
+          <h3>By John Alexis Guerra Gómez</h3>
+        </section>
+        <section>
+          <section>
+            <h2>I had a network</h2>
+          </section>
+          <section>
+            <h2>Well, actually</h2>
+          </section>
+          <section>
+            <h2>I had a question</h2>
+          </section>
+          <section>
+            <h2>OpenVis 2014, 2015</h2>
+            <ul>
+              <li class="fragment">Couldn't come</li>
+              <li class="fragment">so I followed through Twitter</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Realizations:</h2>
+            <ul>
+              <li class="fragment">I need to go!</li>
+              <li class="fragment">Twitter is OpenVis backchannel</li>
+              <li class="fragment">Am I getting it all?</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Who should I be following to get the best out of OpenVis Twitter discussions?</h2>
+          </section>
+          <section>
+            <h2>Well you could follow all the people that mentions #OpenvisConf</h2>
+          </section>
+          <section>
+            <h2>What about only the ones with many followers?</h2>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment">Obama</li>
+              <li class="fragment">NyTimes</li>
+              <li class="fragment">Tufte</li>
+            </ul>
+          </section>
+          <section>
+            <h2>What about only the people followed the most by the people that talk #OpenVisConf?</h2>
+          </section>
+          <section>
+            <h2>Mindblown!</h2>
+          </section>
+          <section>
+            <h2>Let's visualize it!</h2>
+            <ul>
+              <li class="fragment">Networks!</li>
+              <li class="fragment">D3!</li>
+            </ul>
+          </section>
+          <section><img src="images/Openvis_hairball.png"></section>
+          <section><img src="images/Top300_hairball.png"></section>
+          <section><img src="images/Openvis_Influentials_hairball.png"></section>
+          <section><img src="images/OpenvisClusters.png"></section>
+          <section>
+            <h2>Back to my question!</h2>
+          </section>
+          <section>
+            <iframe src="http://johnguerra.co/viz/influentials/openvisconf/" class="demo"></iframe>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>How to untangle the hairball?</h1>
+            <h2>Tasks!</h2>
+          </section>
+          <section>
+            <h2>Ben and Catherine:</h2>
+            <p>What are your tasks?</p>
+            <p>What are your users?</p>
+          </section>
+          <section>
+            <h2>Tamara's Book</h2><img src="images/Tamaras_why.png">
+          </section>
+          <section>
+            <h2>Types of tasks</h2>
+            <ul>
+              <li>Overview</li>
+              <li>Query</li>
+            </ul>
+          </section>
+          <section class="demo">
+            <h2>Overview</h2><img src="images/overview_10k_full_cropped.png">
+          </section>
+          <section>
+            <h2>Tip1. Filter</h2><img src="images/rank_by_relevance1.png">
+          </section>
+          <section>
+            <h2>Tip2 Select neighborhood</h2><img src="images/rank_by_relevance2.png">
+          </section>
+          <section>
+            <h2>Tip3 Communities</h2>
+            <ul>
+              <li>Netclustering.js</li>
+              <li>Force in a box.js</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Netclustering.js</h2>
+            <iframe src="https://cdn.rawgit.com/john-guerra/ecdde32ab4ad91a1a240/raw/2c1a843df8631604a99140ddc9db8ee048624a79/index.html" class="demo"></iframe><a href="https://github.com/john-guerra/netClusteringJs" class="tiny">https://github.com/john-guerra/netClusteringJs</a>
+          </section>
+          <section>
+            <h2>Force in a box</h2>
+            <iframe src="https://cdn.rawgit.com/john-guerra/14c943d8f198d9f3fef2/raw/320474d468321d00f3241609a125c8d37935474b/index.html" class="demo"></iframe><a href="https://github.com/john-guerra/forceInABox" class="tiny">https://github.com/john-guerra/forceInABox</a>
+          </section>
+          
+          <section>
+            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_1.png">
+          </section>
+          <section>
+            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_2.png">
+          </section>
+          <section>
+            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_3.png">
+          </section>
+          <section>
+            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_4.png">
+          </section>
+          <section>
+            <h2>Tip5 Where am I?</h2><img src="images/nodeNavigator.png">
+          </section>
+          <section>
+            <h2>Use different layouts</h2>
+            <iframe src="http://johnguerra.co/viz/influentials/openvisconf/network.html" class="demo"></iframe><a href="http://johnguerra.co/viz/influentials/openvisconf/network.html" class="tiny">http://johnguerra.co/viz/influentials/openvisconf/network.html</a>
+          </section>
+          <section>
+            <h1>Query</h1>
+            <ul>
+              <li class="fragment">Tip6 Ego centric views</li>
+              <li class="fragment">Tip7 Expand on demand</li>
+              <li class="fragment">Tip8 Node pining</li>
+              <li class="fragment">Tip9 Filter on attributes</li>
+            </ul>
+          </section>
+          <section>
+            <iframe src="http://johnguerra.co/viz/networkExplorer/indexfb.html" class="demo"></iframe>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Other network visualizations</h2><a href="http://vistorian.net">http://vistorian.net</a>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Take home message</h2>
+            <ul>
+              <li class="fragment">Define your tasks</li>
+              <li class="fragment">Rank by relevance</li>
+              <li class="fragment">Overview or Query?</li>
+              <li class="fragment">Beyond node-link</li>
+            </ul>
+          </section>
+          
+        </section>
+      </div>
+    </div>
+    <script src="js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+      
+        // Display a presentation progress bar
+        progress: true,
+      
+        // Display the page number of the current slide
+        slideNumber: false,
+      
+        // Push each slide change to the browser history
+        history: true,
+      
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+      
+        // Enable the slide overview mode
+        overview: true,
+      
+        // Vertical centering of slides
+        center: true,
+      
+        // Enables touch navigation on devices with touch input
+        touch: true,
+      
+        // Loop the presentation
+        loop: false,
+      
+        // Change the presentation direction to be RTL
+        rtl: false,
+      
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+      
+        // Turns fragments on and off globally
+        fragments: true,
+      
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+      
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+      
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+      
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+      
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+      
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: Reveal.navigateNext,
+      
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+      
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+      
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+      
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+      
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+      
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+      
+        // Parallax background image
+        parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+      
+        // Parallax background size
+        parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+      
+        // Number of pixels to move the parallax background per slide
+        // - Calculated automatically unless specified
+        // - Set to 0 to disable movement along an axis
+        parallaxBackgroundHorizontal: null,
+        parallaxBackgroundVertical: null,
+      
+        // Options which are passed into marked
+        // See https://github.com/chjj/marked#options-1
+        markdown: {
+          smartypants: true
+        },
+      
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      
+          // Interpret Markdown in <section> elements
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      
+          // Syntax highlight for <code> elements
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      
+          // Zoom in and out with Alt+click
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+      
+          // Speaker notes
+          { src: 'plugin/notes/notes.js', async: true },
+      
+          // MathJax
+          { src: 'plugin/math/math.js', async: true }
+        ],
+      
+      });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-72531610-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
