@@ -116,54 +116,12 @@
   z-index: -10;
   width: 50%;
 }
-.reveal #handsOn pre {
-  width: 70%;
-  font-size: 0.5em;
-  float: left;
+.reveal .center {
+  margin: auto;
+  display: block;
 }
-.reveal #handsOn div.target {
-  margin: 20px;
-  width: 25%;
-  float: left;
-  font: 10px sans-serif;
-}
-.reveal #handsOn div.target rect {
-  fill: #4682b4;
-}
-.reveal #handsOn div.target circle {
-  opacity: 0.3;
-}
-.reveal #handsOn div.target path.line {
-  fill: none;
-  stroke: #666;
-  stroke-width: 1.5px;
-}
-.reveal #handsOn div.target path.area {
-  fill: #e7e7e7;
-}
-.reveal #handsOn div.target .axis {
-  shape-rendering: crispEdges;
-}
-.reveal #handsOn div.target .x.axis line {
-  stroke: #bbb;
-}
-.reveal #handsOn div.target .x.axis .minor {
-  stroke-opacity: 0.5;
-}
-.reveal #handsOn div.target .x.axis path {
-  fill: none;
-}
-.reveal #handsOn div.target .y.axis line,
-.reveal #handsOn div.target .y.axis path {
-  fill: none;
-  stroke: #333;
-}
-.reveal #handsOn button.execute {
-  clear: both;
-  font-size: 0.8em;
-}
-.reveal #handsOn div.followLink {
-  font-size: 0.6em;
+.reveal img.circle {
+  border-radius: 50%;
 }
 .reveal .contactInfo {
   text-align: right;

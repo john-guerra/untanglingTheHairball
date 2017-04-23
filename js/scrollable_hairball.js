@@ -15,6 +15,8 @@ function Scrollable() {
     clusters:clusters,
     fixedAxis:fixedAxis,
     linksOnDemand:linksOnDemand,
+    addMoreNodes:addMoreNodes,
+    byCountOfTweets:byCountOfTweets
   };
 
   function allGraph() {
@@ -86,9 +88,49 @@ function Scrollable() {
     plot.onlyDrawSelectedLinks = true;
     plot.useCharge = false;
     plot.charge = 0;
+    plot.zoomScale = 0.8;
+    plot.zoomTranslate = [80,0];
     plot.radiusRange = [8, 25];
     update();
   }
+
+  function addMoreNodes() {
+    plot.onlyMostFollowed = true;
+    plot.onlyOriginals = false;
+    plot.showClusters = true;
+    plot.useFixedAxis = true;
+    plot.drawLinks = true;
+    plot.onlyDrawSelectedLinks = true;
+    plot.useCharge = false;
+    plot.charge = 0;
+    plot.radiusRange = [4, 20];
+    plot.zoomScale = 5.5;
+    plot.zoomTranslate = [10,0];
+    plot.xAttr = "followers_count";
+    plot.xTitle = "Followers overall";
+    update();
+  }
+
+  function byCountOfTweets() {
+    plot.onlyMostFollowed = false;
+    plot.onlyOriginals = false;
+    plot.showClusters = true;
+    plot.useFixedAxis = true;
+    plot.drawLinks = true;
+    plot.onlyDrawSelectedLinks = true;
+    plot.useCharge = false;
+    plot.charge = 0;
+    plot.radiusRange = [4, 20];
+    plot.zoomScale = 5.5;
+    plot.zoomTranslate = [10,0];
+    plot.xAttr = "query_tweet_count";
+    plot.xTitle = "#tweets in openvisconf";
+    update();
+  }
+
+
+
+
   /* ------- The Viz ------------ */
   var width = window.innerWidth,
     height = Math.max(window.innerHeight*0.8, 400) ;

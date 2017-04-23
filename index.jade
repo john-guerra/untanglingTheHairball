@@ -61,28 +61,39 @@ html
               li.fragment Am I getting it all?
 
           section
-            h2 Who should I be following to get the best out of OpenVis Twitter discussions?
+            h3 Who should I be following to get the best out of OpenVis Twitter discussions?
 
           section
-            h2 Well you could follow all the people that mentions #OpenvisConf
-
+            h3 Well you could follow all the people that mentions #OpenvisConf
             p TODO: show the list
 
           section
-            h2 What about only the ones with many followers?
+            h3 What about the interesting people that didn't talk #OpenvisConf during the conference?
 
           section
-            ul
-              li.fragment Obama
-              li.fragment NyTimes
-              li.fragment Tufte
+            h3 What about only the people followed the most by the people that talk #OpenVisConf?
 
           section
-            h2 What about only the people followed the most by the people that talk #OpenVisConf?
+            h3 mbostock
+              img(src="images/mbostock.png" alt="mbostock twitter photo")
+            p.fragment He didn't tweet during OpenVis 2016
+            img.fragment(src="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif" alt="Shakira gracias")
+            p.fragment What? were you busy doing d3v4?
 
           section
-            h2 Mindblown!
-            p todo: add gif
+            h3 mbostock
+            p.fragment ¡Gracias viejo!
+            img.fragment(src="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif" alt="Shakira gracias")
+            p.fragment I should be following him
+
+          section
+            h3 Let's find the accounts that you (#openVisConf community) follows the most
+            img.fragment(src="https://media.giphy.com/media/oZ4oUV1xriqZi/giphy.gif" width="500px" alt="Mind blown gif")
+
+          section
+            img(src="images/OpenVisConf_mostfollowed.png" alt="OpenVisConf most followed")
+
+
 
           section
             h2 Let's visualize it!
@@ -96,19 +107,21 @@ html
 
           section.scroll(step="allGraph")
             h3 State of the art netviz
-            p.fragment hairball
+            //- p.fragment hairball
+            img.fragment(src="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif", alt="Hairball spewing a cat")
 
           section.scroll(step="onlyCommunity")
             h3 Filter 300!
-            p.fragment hairball
+            img.fragment(src="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif", alt="Cat coughing")
 
           section.scroll(step="top300")
             h3 Only influentials!
-            p.fragment hairball
+            img.fragment(src="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif", alt="Cat eating hair")
 
           section.scroll(step="clusters")
             h3 Communities
-            p.fragment hairball
+            img.fragment(src="puss_in_boots_hairball.gif", alt="Cat eating hair")
+            //- https://www.youtube.com/watch?v=6MTIwY3_-ks
 
           section.scroll(step="clusters")
             h2 Back to my question!
@@ -120,6 +133,12 @@ html
           section.scroll(step="linksOnDemand")
             h4 Links on demand
 
+          section.scroll(step="addMoreNodes")
+            h4 Add back more nodes
+
+          section.scroll(step="byCountOfTweets")
+            h4 Number of tweets
+
 
         //- Section 2 Tasks
         section
@@ -127,15 +146,42 @@ html
             h1 How to untangle the hairball?
             h2 Tasks!
 
-          section
-            h2 Ben and Catherine:
-            p What are your tasks?
-            p What are your users?
-
+          section(data-background-image="images/Ben_and_Catherine.jpg" )
 
           section
-            h2 Tamara's Book
+            div.left
+              a(href="https://www.cs.umd.edu/users/ben/index.html")
+                img.circle(src="images/munzner-2014-headshot-250.jpg", alt="Ben Shneiderman's headshot")
+                h4 Ben Shneiderman
+
+            div.right
+              a(href="http://hcil.umd.edu/catherine-plaisant/")
+                img.circle(src="images/munzner-2014-headshot-250.jpg", alt="Catherine Plaisant's headshot")
+                h4 Catherine Plaisant
+            p
+              h2.fragment(style="color:white") What are your tasks?
+              h2.fragment(style="color:white") What are your users?
+
+
+
+          section
+            h2 Visualization Analysis and Design
+
+            div.left
+              div.center
+                a(href="https://www.cs.ubc.ca/~tmm/vadbook/")
+                  img.center(src="images/vadcover.med.png", alt="Visualization Analysis and Design's Book Cover")
+              a.tiny(href="https://www.cs.ubc.ca/~tmm/vadbook/") https://www.cs.ubc.ca/~tmm/vadbook/
+            div.right
+              a(href="https://www.cs.ubc.ca/~tmm/")
+                img.circle(src="images/munzner-2014-headshot-250.jpg", alt="Tamara Munzner's headshot")
+                h4 Tamara Munzner
+
+
+
+          section
             img(src="images/Tamaras_why.png")
+            a.tiny(href="http://www.cs.ubc.ca/~tmm/talks.html#vad16act") http://www.cs.ubc.ca/~tmm/talks.html#vad16act
 
           section
             h2 Types of tasks

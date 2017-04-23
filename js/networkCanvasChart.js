@@ -11,17 +11,19 @@ var networkCanvasChart = function () {
   chart.xAttr = "followers_count";
   chart.xTitle = "Followers overall";
   chart.yAttr = "count_followers_in_query";
-  chart.yTitle = "Followers in community";
+  chart.yTitle = "Followers in OpenVisConf";
   chart.width = 300;
   chart.height = 520;
   chart.showClusters = true;
   chart.charge = -100;
   chart.useCharge = false;
+  chart.zoomScale = 0.8;
+  chart.zoomTranslate = [80,0];
   // Node's radius
   chart.radiusRange = [4,15];
 
   var width,height;
-  var margin = {top:40, left:40, bottom:60, right:10};
+  var margin = {top:10, left:40, bottom:60, right:10};
 
 
   // Colors for clusters
@@ -87,7 +89,7 @@ var networkCanvasChart = function () {
       d.nodeImg.onload = function() {
         // console.log("Loaded image" + d.profile_image_url);
         d.nodeImgData = this;
-      }
+      };
       d.count_followers_in_query = +d.count_followers_in_query;
     });
 
@@ -311,6 +313,9 @@ var networkCanvasChart = function () {
       svg.append("text")
         .attr("id", "tooltip")
         .attr("transform", "translate(-500, -500)"); //hidden
+      svg.select("#tooltip").append("tspan").attr("id","name").attr("x",0).attr("dy","1.2em");
+      svg.select("#tooltip").append("tspan").attr("id","x").attr("x",0).attr("dy","1.2em");
+      svg.select("#tooltip").append("tspan").attr("id","y").attr("x",0).attr("dy","1.2em");
 
 
       canvas = document.querySelector("canvas");
@@ -339,12 +344,13 @@ var networkCanvasChart = function () {
         .duration(750)
         .call(zoom.transform, d3.zoomIdentity
             // .translate(width/2, height/2)
-            .scale(0.8)
-            .translate(+80, 0)
+            .scale(chart.zoomScale)
+            // .translate(80, 0)
+            .translate(chart.zoomTranslate[0], chart.zoomTranslate[1])
             );
 
       } else {
-                svgEle.merge(svgEnter).transition()
+        svgEle.merge(svgEnter).transition()
         .duration(750)
         .call(zoom.transform, d3.zoomIdentity
             // .translate(width/2, height/2)
@@ -512,16 +518,24 @@ var networkCanvasChart = function () {
           d3.mouse(this)[1] - margin.top
           );
 
-        console.log(d3.mouse(this)[0] - margin.left);
-        console.log(d3.mouse(this)[1] - margin.top);
+        console.log((d3.mouse(this)[0]-margin.left) + " - " + (d3.mouse(canvas)[0]-margin.left) );
+        console.log((d3.mouse(this)[1]-margin.top) + " - " + (d3.mouse(canvas)[1]-margin.top) );
 
         svg.select("#tooltip")
-          .text(node["screen_name"] + ":" + node[chart.yAttr])
           .attr("dy", (node.r*2 + 10) + "px")
           .attr("dx", (node.r/2) + "px")
           .attr("transform", "translate("+ node.x + "," + node.y +")")
+          .select("#name")
+          .style("font-size","200%")
+          .text(node["screen_name"]);
+        svg.select("#tooltip")
+          .select("#x")
+          .text(chart.xTitle + "  " + node[chart.xAttr]);
+        svg.select("#tooltip")
+          .select("#y")
+          .text(chart.yTitle + "  " + node[chart.yAttr]);
 
-        console.log(node);
+        // console.log(node);
 
         selectedNode = node;
         selectedLinks = simulation.force("link").links().filter(function (d) {
@@ -554,9 +568,12 @@ var networkCanvasChart = function () {
         nonSelectedLinks = null;
 
         svg.select("#tooltip")
-          .text("")
           .attr("dy", 20 + "px")
           .attr("transform", "translate(-500,-500)");
+        svg.select("#tooltip").select("#name").text("");
+        svg.select("#tooltip").select("#x").text("");
+        svg.select("#tooltip").select("#y").text("");
+
 
       }
 
@@ -601,9 +618,9 @@ var networkCanvasChart = function () {
             console.error(e);
           }
 
-          context.beginPath();
+          // context.beginPath();
           // context.arc(d.x+d.r, d.y+d.r, d.r, 0, Math.PI * 2, true);
-          context.clip();
+          // context.clip();
           // context.stroke();
           // context.fill();
           context.closePath();
@@ -620,4 +637,4 @@ var networkCanvasChart = function () {
 
 
   return chart;
-} // networkCanvasChart
+}; // networkCanvasChart

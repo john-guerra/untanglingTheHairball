@@ -7,6 +7,11 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  overflow: visible;
+}
+
+#networkChart svg text {
+  pointer-events: none;
 }
 
 #tooltip {
