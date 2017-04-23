@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/white.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/scrollable.css">
+    <link rel="stylesheet" href="css/scrollableHairball.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald|Quattrocento">
     <meta charset="utf-8">
     <meta name="author" content="John Alexis Guerra Gomez">
@@ -26,6 +28,9 @@
   <body>
     <div class="reveal">
       <div class="slides">
+        <div class="scrollable">
+          <div id="networkChart"></div>
+        </div>
         <section>
           <h1>Untangling the Hairball</h1>
           <h3>By John Alexis Guerra Gómez</h3>
@@ -60,6 +65,7 @@
           </section>
           <section>
             <h2>Well you could follow all the people that mentions #OpenvisConf</h2>
+            <p>TODO: show the list</p>
           </section>
           <section>
             <h2>What about only the ones with many followers?</h2>
@@ -76,6 +82,7 @@
           </section>
           <section>
             <h2>Mindblown!</h2>
+            <p>todo: add gif</p>
           </section>
           <section>
             <h2>Let's visualize it!</h2>
@@ -84,15 +91,32 @@
               <li class="fragment">D3!</li>
             </ul>
           </section>
-          <section><img src="images/Openvis_hairball.png"></section>
-          <section><img src="images/Top300_hairball.png"></section>
-          <section><img src="images/Openvis_Influentials_hairball.png"></section>
-          <section><img src="images/OpenvisClusters.png"></section>
-          <section>
+          
+          <section step="allGraph" class="scroll">
+            <h3>State of the art netviz</h3>
+            <p class="fragment">hairball</p>
+          </section>
+          <section step="onlyCommunity" class="scroll">
+            <h3>Filter 300!</h3>
+            <p class="fragment">hairball</p>
+          </section>
+          <section step="top300" class="scroll">
+            <h3>Only influentials!</h3>
+            <p class="fragment">hairball</p>
+          </section>
+          <section step="clusters" class="scroll">
+            <h3>Communities</h3>
+            <p class="fragment">hairball</p>
+          </section>
+          <section step="clusters" class="scroll">
             <h2>Back to my question!</h2>
           </section>
-          <section>
-            <iframe src="http://johnguerra.co/viz/influentials/openvisconf/" class="demo"></iframe>
+          <section step="fixedAxis" class="scroll">
+            <h4>Let's fix axis</h4>
+            <p>Number of followers overall vs followers in #OpenVisConf</p>
+          </section>
+          <section step="linksOnDemand" class="scroll">
+            <h4>Links on demand</h4>
           </section>
         </section>
         <section>
@@ -132,12 +156,10 @@
             </ul>
           </section>
           <section>
-            <h2>Netclustering.js</h2>
-            <iframe src="https://cdn.rawgit.com/john-guerra/ecdde32ab4ad91a1a240/raw/2c1a843df8631604a99140ddc9db8ee048624a79/index.html" class="demo"></iframe><a href="https://github.com/john-guerra/netClusteringJs" class="tiny">https://github.com/john-guerra/netClusteringJs</a>
+            <h2>Netclustering.js</h2><a href="https://github.com/john-guerra/netClusteringJs" class="tiny">https://github.com/john-guerra/netClusteringJs</a>
           </section>
           <section>
-            <h2>Force in a box</h2>
-            <iframe src="https://cdn.rawgit.com/john-guerra/14c943d8f198d9f3fef2/raw/320474d468321d00f3241609a125c8d37935474b/index.html" class="demo"></iframe><a href="https://github.com/john-guerra/forceInABox" class="tiny">https://github.com/john-guerra/forceInABox</a>
+            <h2>Force in a box</h2><a href="https://github.com/john-guerra/forceInABox" class="tiny">https://github.com/john-guerra/forceInABox</a>
           </section>
           
           <section>
@@ -156,8 +178,7 @@
             <h2>Tip5 Where am I?</h2><img src="images/nodeNavigator.png">
           </section>
           <section>
-            <h2>Use different layouts</h2>
-            <iframe src="http://johnguerra.co/viz/influentials/openvisconf/network.html" class="demo"></iframe><a href="http://johnguerra.co/viz/influentials/openvisconf/network.html" class="tiny">http://johnguerra.co/viz/influentials/openvisconf/network.html</a>
+            <h2>Use different layouts</h2><a href="http://johnguerra.co/viz/influentials/openvisconf/network.html" class="tiny">http://johnguerra.co/viz/influentials/openvisconf/network.html</a>
           </section>
           <section>
             <h1>Query</h1>
@@ -193,6 +214,10 @@
     </div>
     <script src="js/head.min.js"></script>
     <script src="js/reveal.js"></script>
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/NetworkCanvasChart.js"></script>
+    <script src="js/scrollable_hairball.js"></script>
+    <script src="js/makeScrollable.js"></script>
     <script>
       Reveal.initialize({
         // Display controls in the bottom right corner
@@ -314,6 +339,7 @@
         ],
       
       });
+      
     </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

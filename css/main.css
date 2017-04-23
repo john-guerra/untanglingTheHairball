@@ -1,6 +1,6 @@
-@import '../lib/css/reveal.css';
-@import '../lib/css/theme/simple.css';
-@import '../lib/css/zenburn.css';
+.reveal {
+  font-family: 'Quattrocento', sans-serif;
+}
 .reveal p,
 .reveal ol,
 .reveal ul,
@@ -75,8 +75,7 @@
 .reveal #title h4,
 .reveal #title h5,
 .reveal #title h6 {
-  font-family: 'Helvetica Neue', sans-serif;
-  letter-spacing: -0.05em;
+  font-family: 'Oswald', serif;
   margin: 0;
 }
 .reveal #title h1 {
