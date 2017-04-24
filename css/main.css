@@ -100,7 +100,7 @@
   font-size: 30%;
 }
 .reveal .bottom {
-  margin-top: 65%;
+  margin-top: 35%;
 }
 .reveal .authors {
   font-size: 70%;
@@ -148,4 +148,13 @@
 }
 .reveal .clear {
   clear: both;
+}
+.reveal table.networkCube td {
+  margin: 0px auto;
+  width: 20%;
+  text-align: center;
+}
+.reveal table.networkCube img {
+  display: block;
+  margin: auto;
 }
