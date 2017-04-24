@@ -30,12 +30,32 @@ html
     div.reveal
       div.slides
 
-        div.scrollable
-          div#networkChart
+        div.scrollable.scrollable-hairball
+          div#networkChartHair
+
+        div.scrollable.scrollable-tips
+          div#networkChartTips
 
         section
           h1 Untangling the Hairball
-          h3 By John Alexis Guerra Gómez
+
+          h4.small
+            a(href='http://johnguerra.co/', target='_blank') #[strong John Alexis Guerra Gómez]
+            br
+            small
+              span.tiny
+                a(href='http://twitter.com/duto_guerra' , target='_blank')  @duto_guerra
+
+          p.tiny
+            a(href='http://johnguerra.co/slides/untanglingTheHairball', target='_blank') http://johnguerra.co/slides/untanglingTheHairball
+
+          div.left.logo
+            a(href="http://www.uniandes.edu.co/")
+              img.logo(src="images/universidad_de_los_andes_logo@2x.png" alt="Los Andes University")
+          div.right.logo
+            a(href="https://datascience.berkeley.edu/")
+              img.logo(src="images/UC_Berkeley_wordmark_cal_gold.png" alt="University Of California at Berkeley logo")
+
 
         section
           section
@@ -75,13 +95,14 @@ html
 
           section
             h3 mbostock
-              img(src="images/mbostock.png" alt="mbostock twitter photo")
+              img.circle.miniheadshot(src="images/mbostock.jpg" alt="mbostock twitter photo")
             p.fragment He didn't tweet during OpenVis 2016
             img.fragment(src="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif" alt="Shakira gracias")
             p.fragment What? were you busy doing d3v4?
 
           section
             h3 mbostock
+              img.circle.miniheadshot(src="images/mbostock.jpg" alt="mbostock twitter photo")
             p.fragment ¡Gracias viejo!
             img.fragment(src="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif" alt="Shakira gracias")
             p.fragment I should be following him
@@ -105,38 +126,38 @@ html
           //-   h2 Prayed to Saint Bostock
 
 
-          section.scroll(step="allGraph")
+          section.scroll(scrollable="hairball" step="allGraph")
             h3 State of the art netviz
             //- p.fragment hairball
             img.fragment(src="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif", alt="Hairball spewing a cat")
 
-          section.scroll(step="onlyCommunity")
+          section.scroll(scrollable="hairball" step="onlyCommunity")
             h3 Filter 300!
             img.fragment(src="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif", alt="Cat coughing")
 
-          section.scroll(step="top300")
+          section.scroll(scrollable="hairball" step="top300")
             h3 Only influentials!
             img.fragment(src="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif", alt="Cat eating hair")
 
-          section.scroll(step="clusters")
+          section.scroll(scrollable="hairball" step="clusters")
             h3 Communities
-            img.fragment(src="puss_in_boots_hairball.gif", alt="Cat eating hair")
+            img.fragment(src="images/puss_in_boots_hairball.gif", alt="Puss in boots hairball")
             //- https://www.youtube.com/watch?v=6MTIwY3_-ks
 
-          section.scroll(step="clusters")
+          section.scroll(scrollable="hairball" step="clusters")
             h2 Back to my question!
 
-          section.scroll(step="fixedAxis")
+          section.scroll(scrollable="hairball" step="fixedAxis")
             h4 Let's fix axis
             p Number of followers overall vs followers in #OpenVisConf
 
-          section.scroll(step="linksOnDemand")
+          section.scroll(scrollable="hairball" step="linksOnDemand")
             h4 Links on demand
 
-          section.scroll(step="addMoreNodes")
+          section.scroll(scrollable="hairball" step="addMoreNodes")
             h4 Add back more nodes
 
-          section.scroll(step="byCountOfTweets")
+          section.scroll(scrollable="hairball" step="byCountOfTweets")
             h4 Number of tweets
 
 
@@ -149,18 +170,19 @@ html
           section(data-background-image="images/Ben_and_Catherine.jpg" )
 
           section
+            p
+              h3.fragment What are your tasks?
+              h3.fragment What are your users?
+
             div.left
               a(href="https://www.cs.umd.edu/users/ben/index.html")
-                img.circle(src="images/munzner-2014-headshot-250.jpg", alt="Ben Shneiderman's headshot")
+                img.circle.headshot(src="images/ben_pic_fp_cropped.jpg", alt="Ben Shneiderman's headshot")
                 h4 Ben Shneiderman
 
             div.right
               a(href="http://hcil.umd.edu/catherine-plaisant/")
-                img.circle(src="images/munzner-2014-headshot-250.jpg", alt="Catherine Plaisant's headshot")
+                img.circle.headshot(src="images/Catherine-photo-2017-croped-768x847.jpg", alt="Catherine Plaisant's headshot")
                 h4 Catherine Plaisant
-            p
-              h2.fragment(style="color:white") What are your tasks?
-              h2.fragment(style="color:white") What are your users?
 
 
 
@@ -174,7 +196,7 @@ html
               a.tiny(href="https://www.cs.ubc.ca/~tmm/vadbook/") https://www.cs.ubc.ca/~tmm/vadbook/
             div.right
               a(href="https://www.cs.ubc.ca/~tmm/")
-                img.circle(src="images/munzner-2014-headshot-250.jpg", alt="Tamara Munzner's headshot")
+                img.circle.headshot(src="images/munzner-2014-headshot-250.jpg", alt="Tamara Munzner's headshot")
                 h4 Tamara Munzner
 
 
@@ -184,86 +206,102 @@ html
             a.tiny(href="http://www.cs.ubc.ca/~tmm/talks.html#vad16act") http://www.cs.ubc.ca/~tmm/talks.html#vad16act
 
           section
-            h2 Types of tasks
-            ul
-              li Overview
-              li Query
+            h2 NetViz tasks
+            div.left.fragment
+              div(style="height:500px; display:table-cell; vertical-align:middle;")
+                img.center(style="margin:auto" src="images/overview_10k_nointer_cropped_just_network.png", alt="Overview style tasks")
+              h4 Overview
+            div.right.fragment
+              div(style="height:500px; display:table-cell; vertical-align:middle;")
+                img.center(style="margin:auto" src="images/ego_centric_view.png", alt="Query style tasks")
+              h4 Query
 
           section.demo
             h2 Overview
-            img(src="images/overview_10k_full_cropped.png")
+            img(src="images/overview_10k_nointer_cropped_just_network.png")
 
-          section
-            h2 Tip1. Filter
-            img(src="images/rank_by_relevance1.png")
+          section.scroll(scrollable="tips" step="step0")
+            h3 IEEEVIS Citation Network
+            p All authors citations 2015
 
-          section
-            h2 Tip2 Select neighborhood
-            img(src="images/rank_by_relevance2.png")
+          section.scroll(scrollable="tips" step="filter")
+            h3 Tip1. Filter
+            p Display only the most important nodes for your task (a core)
 
-          section
-            h2 Tip3 Communities
-            ul
-              li Netclustering.js
-              li Force in a box.js
+          section.scroll(scrollable="tips" step="neighborhood")
+            h3 Tip2 Select neighborhood
+            p That core can be unconnected, so select also their neighborhood
 
-          section
-            h2 Netclustering.js
-            //- img(src="images/.jpg")
-            //- iframe.demo(src="https://cdn.rawgit.com/john-guerra/ecdde32ab4ad91a1a240/raw/2c1a843df8631604a99140ddc9db8ee048624a79/index.html")
-            a.tiny(href="https://github.com/john-guerra/netClusteringJs") https://github.com/john-guerra/netClusteringJs
+          section.scroll(scrollable="tips" step="neighborhood")
+            h3 Tip3 Communities
+            p Use community detection
 
-          section
-            h2 Force in a box
-            //- iframe.demo(src="https://cdn.rawgit.com/john-guerra/14c943d8f198d9f3fef2/raw/320474d468321d00f3241609a125c8d37935474b/index.html")
-            a.tiny(href="https://github.com/john-guerra/forceInABox") https://github.com/john-guerra/forceInABox
+          section.scroll(scrollable="tips" step="doNetClustering")
+            h3 Netclustering.js
+            pre
+              code.tiny(data-trim data-noescape).
+                netClustering.cluster(nodes, links)
+
+            a.micro(href="https://github.com/john-guerra/netClusteringJs") https://github.com/john-guerra/netClusteringJs
+
+          section.scroll(scrollable="tips" step="forceInABoxTreemap")
+            h3 Force in a box
+            pre
+              code.tiny(data-trim data-noescape).
+                simulation = d3.forceSimulation(nodes)
+                  .force("group", forceInABox()
+                    .nodes(nodes)
+                    .links(links)
+                    .size(width,height)
+                  .force("link", d3.forceLink().links(links)
+                    .strength(forceInABox.linkStrength))
+
+            p Distributes clusters on a treemap
+            a.micro(href="https://github.com/john-guerra/forceInABox") https://github.com/john-guerra/forceInABox
+
+          section.scroll(scrollable="tips" step="forceInABoxForce")
+            h3 Force in a box
+            p Distributes clusters using forces
+            a.micro(href="https://github.com/john-guerra/forceInABox") https://github.com/john-guerra/forceInABox
 
           //- TODO: Show video of how it works
 
+          section.scroll(scrollable="tips" step="navigateIntoCluster")
+            h3 Tip4 Navigate into clusters
 
-          section
-            h2 Tip4 Navigate into clusters
-            img(src="images/jumpIntoCluster_1.png")
 
-          section
-            h2 Tip4 Navigate into clusters
-            img(src="images/jumpIntoCluster_2.png")
-
-          section
-            h2 Tip4 Navigate into clusters
-            img(src="images/jumpIntoCluster_3.png")
-
-          section
-            h2 Tip4 Navigate into clusters
-            img(src="images/jumpIntoCluster_4.png")
-
-          section
-            h2 Tip5 Where am I?
-            img(src="images/nodeNavigator.png")
-
-          section
-            h2 Use different layouts
-            //- iframe.demo(src="http://johnguerra.co/viz/influentials/openvisconf/network.html")
-            a.tiny(href="http://johnguerra.co/viz/influentials/openvisconf/network.html") http://johnguerra.co/viz/influentials/openvisconf/network.html
+          //- section.scroll(scrollable="tips" step="step5")
+          //-   h3 Tip5 Use different layouts
+          //-   //- iframe.demo(src="http://johnguerra.co/viz/influentials/openvisconf/network.html")
 
           section
             h1 Query
-            ul
-              li.fragment Tip6 Ego centric views
-              li.fragment Tip7 Expand on demand
-              li.fragment Tip8 Node pining
-              li.fragment Tip9 Filter on attributes
 
           section
-            iframe.demo(src="http://johnguerra.co/viz/networkExplorer/indexfb.html")
+            div.left
+              ul
+                li.fragment Tip6 Ego centric views
+                li.fragment Tip7 Expand on demand
+                li.fragment Tip8 Node pining
+
+            div.right
+              img(src="images/egodistance.gif", alt="Ego centric view demo")
+
+          //- section.scroll(scrollable="tips" step="step6")
+          //-   h3 Tip6 Ego centric views
+
+          //- section.scroll(scrollable="tips" step="step7")
+          //-   h3 Tip7 Expand on demand
+
+          //- section.scroll(scrollable="tips" step="step8")
+          //-   h3 Tip8 Node pining
+          //- section.scroll(scrollable="tips" step="step9")
+          //-   h3 Tip9 Filter on attributes
 
         section
-
           section
             h2 Other network visualizations
-            a(href="http://vistorian.net") http://vistorian.net
-
-
+            a(href="http://networkcube.net") http://networkcube.net
 
         section
           section
@@ -283,8 +321,10 @@ html
     script(src="js/reveal.js")
     script(src="js/d3.v4.min.js")
     script(src="js/NetworkCanvasChart.js")
-    //- script(src="js/netClustering.js")
-    script(src="js/scrollable_hairball.js")
+    script(src="js/netClustering.js")
+    script(src="js/forceInABoxv4.js")
+    script(src="js/ScrollableHairball.js")
+    script(src="js/ScrollableTips.js")
     script(src="js/makeScrollable.js")
 
     script.

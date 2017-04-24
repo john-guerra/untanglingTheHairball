@@ -1,11 +1,17 @@
-/*global d3 , Scrollable, networkCanvasChart */
+/*global d3, networkCanvasChart */
 
-function Scrollable() {
+function ScrollableHairball() {
   var scrollable={};
 
   scrollable.scroll = function(step) {
     steps[step]();
   };
+
+  scrollable.stop = function () {
+    if (plot)
+      plot.stop();
+  };
+
 
 
   var steps={
@@ -27,7 +33,7 @@ function Scrollable() {
     plot.drawLinks = true;
     plot.onlyDrawSelectedLinks = false;
     plot.useCharge = true;
-    plot.charge = -100;
+    plot.charge = -200;
     plot.radiusRange = [4, 12];
     update();
   }
@@ -39,7 +45,7 @@ function Scrollable() {
     plot.drawLinks = true;
     plot.onlyDrawSelectedLinks = false;
     plot.useCharge = true;
-    plot.charge = -100;
+    plot.charge = -200;
     plot.radiusRange = [4, 16];
     update();
   }
@@ -131,26 +137,30 @@ function Scrollable() {
 
 
 
+
   /* ------- The Viz ------------ */
   var width = window.innerWidth,
     height = Math.max(window.innerHeight*0.8, 400) ;
   var query="openvisconf";
 
-  var color = d3.scaleOrdinal(d3.schemaCategory20);
+  // var color = d3.scaleOrdinal(d3.schemaCategory20);
 
-  var imageSize = function (d) {
-    return d.original ?  30 : rScale(d.degreeIn);
-  };
+  // var imageSize = function (d) {
+  //   return d.original ?  30 : rScale(d.degreeIn);
+  // };
 
-  var rScale = d3.scaleLinear().range([5, 10]);
+  // var rScale = d3.scaleLinear().range([5, 10]);
   // var xInfluentials = d3.scaleOrdinal().rangeBands([20, width-20]);
   // var xTweeters = d3.scale.ordinal().rangeBands([20, width-20]);
 
 
-  var plot = networkCanvasChart();
+  var plot = new networkCanvasChart();
   plot.collide = true;
   plot.onlyMostFollowed = false;
   plot.onlyOriginals = false;
+
+
+
 
 
   var graph = null;
@@ -159,13 +169,14 @@ function Scrollable() {
   // Load data
   d3.json("../data/"+ query+"NetworkClustered.json", function(error, _graph) {
     if (error) throw error;
+    console.log("loaded openVisNetworkClustered.json");
     graph = _graph;
     originalNodes = graph.nodes;
 
     var dNodes =  d3.map();
-    graph.nodes = graph.nodes.filter(function (d) {
-        return +d.followers_count < 500000000;
-      });
+    // graph.nodes = graph.nodes.filter(function (d) {
+    //   return +d.followers_count < 500000000;
+    // });
 
 
     graph.nodes
@@ -180,6 +191,14 @@ function Scrollable() {
         d.favourites_count = +d.favourites_count;
         d.query_tweet_count = +d.query_tweet_count;
       });
+    // var rScale = plot.rScale();
+    // plot.rAttr = function (d) {
+    //   return d.influential ? rScale(d.count_followers_in_query) : rScale(d.count_followers_in_query)/2;
+    // };
+    plot.rAttr = function (d) {
+      return d.influential ? d.count_followers_in_query : (d.count_followers_in_query)/2;
+    };
+    plot.nameAttr = function (d) { return d.screen_name; };
 
     var links =[];
     graph.links = graph.links
@@ -236,7 +255,7 @@ function Scrollable() {
 
     // plot.xAttr = d3.select("#slAttr").property("value");
     // plot.xTitle = dTitle[plot.xAttr];
-    plot.width = document.getElementById("networkChart").offsetWidth;
+    plot.width = document.getElementById("networkChartHair").offsetWidth;
     plot.height = height;
 
 
@@ -256,10 +275,10 @@ function Scrollable() {
     // plot.graph.nodes = originalNodes.filter(function (d) {
     //   return d.influential;
     // })
-    // .slice(0,100);
+    // .slice(0,200);
 
 
-    var canvas = d3.select("#networkChart")
+    d3.select("#networkChartHair")
       .attr("width", width)
       .attr("height", height)
       .datum(graph)

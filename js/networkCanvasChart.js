@@ -1,26 +1,37 @@
-/* global d3, networkCanvasChart */
+/* global d3, networkCanvasChart, forceInABox */
 
 var networkCanvasChart = function () {
   "use strict";
   // constants to define the size
   // and margins of the vis area.
-  var chart = {};
+  var chart = this;
+  var nameAttr = function (d) { return d.name; };
+
   chart.useFixedAxis = false;
   chart.drawLinks = true;
   chart.onlyDrawSelectedLinks = false;
   chart.xAttr = "followers_count";
+  chart.rAttr = function () { return 1; };
   chart.xTitle = "Followers overall";
   chart.yAttr = "count_followers_in_query";
   chart.yTitle = "Followers in OpenVisConf";
-  chart.width = 300;
+  chart.width = 600;
   chart.height = 520;
-  chart.showClusters = true;
+  chart.showClusters = false;
+  chart.useForceInABox = false;
+  chart.forceInABoxTemplate = "force"; // "force" | "treemap"
+  chart.forceInABoxAttr = "cluster";
   chart.charge = -100;
-  chart.useCharge = false;
+  chart.useCharge = true;
   chart.zoomScale = 0.8;
+  chart.linkDistance= 50;
+  chart.linkStrengh = 0.1;
   chart.zoomTranslate = [80,0];
+  chart.collide = false;
+  chart.gravity = 0.2;
   // Node's radius
   chart.radiusRange = [4,15];
+  chart.showImages = true;
 
   var width,height;
   var margin = {top:10, left:40, bottom:60, right:10};
@@ -29,7 +40,7 @@ var networkCanvasChart = function () {
   // Colors for clusters
   var color = d3.scaleOrdinal(d3.schemeCategory20);
   // Should we show images
-  var HIDE_IMAGES = false;
+
   // Should we show clusters?
 
 
@@ -44,6 +55,14 @@ var networkCanvasChart = function () {
   var xAxis = d3.axisBottom(xScale)
             .ticks(5, ".0f");
 
+  chart.xScale = function(_) { return arguments.length ? (xScale = _, chart) : xScale; };
+  chart.xAxis = function(_) { return arguments.length ? (xAxis = _, chart) : xAxis; };
+  chart.yScale = function(_) { return arguments.length ? (yScale = _, chart) : yScale; };
+  chart.yAxis = function(_) { return arguments.length ? (yAxis = _, chart) : yAxis; };
+  chart.rScale = function(_) { return arguments.length ? (rScale = _, chart) : rScale; };
+  chart.color = function(_) { return arguments.length ? (color = _, chart) : color; };
+  chart.nameAttr = function(_) { return arguments.length ? (nameAttr = _, chart) : nameAttr; };
+
 
   var zoom_transform = d3.zoomIdentity;
 
@@ -56,6 +75,7 @@ var networkCanvasChart = function () {
 
   // The force simulation
   var simulation = d3.forceSimulation();
+  simulation.stop();
 
   // A cluster nest for more efficiently drawing the clusters
   var clusters = null;
@@ -137,9 +157,6 @@ var networkCanvasChart = function () {
             .links(filteredLinks);
 
     }
-
-    console.log(simulation.links);
-
   }
 
   function updateClusters() {
@@ -149,41 +166,36 @@ var networkCanvasChart = function () {
       .sort(function(a, b) { return b.values.length - a.values.length; });
 
 
-    var treemap = d3.treemap()
-      .size([width, height])
-      .padding(1);
+    // var treemap = d3.treemap()
+    //   .size([width, height])
+    //   .padding(1);
 
+    // var root = d3.hierarchy({values: clusters}, function(d) { return d.values; })
+    //   .sum(function() { return 1; });
+    //   // .sort(function(a, b) { return b.value - a.value; });
 
-    var root = d3.hierarchy({values: clusters}, function(d) { return d.values; })
-      .sum(function(d) { return 1; })
-      // .sort(function(a, b) { return b.value - a.value; });
+    // treemap(root);
+    // foci={};
+    // root.children.forEach(function (child) {
+    //   foci[child.data.key] = [child.x0 + (child.x1-child.x0)/2, child.y0 + (child.y1-child.y0)/2];
+    // });
 
-    treemap(root);
-    foci={}
-    root.children.forEach(function (child) {
-      foci[child.data.key] = [child.x0 + (child.x1-child.x0)/2, child.y0 + (child.y1-child.y0)/2];
-    });
-    simulation
+    // simulation
       // .force("x", d3.forceX(function (d) { return foci[d.cluster][0]; }).strength(0.5))
       // .force("y", d3.forceY(function (d) { return foci[d.cluster][1]; }).strength(0.5))
       // .force("x", d3.forceX(width/2).strength(0.2))
       // .force("x", d3.forceX(function (d) { return xScale(d[chart.xAttr]); }).strength(0.2))
       // .force("y", d3.forceY(function (d) { return yScale(d[chart.yAttr]); }).strength(0.2))
-    simulation.force("link",
-      d3.forceLink()
-        .id(function (d) { return d.id; } )
-        .distance(10)
-        .strength(chart.useFixedAxis? 0.0000: 0.05)
-        // .strength(function (d) {
-        //   return 0;
-        //   // return (d.source.cluster === d.target.cluster) ?
-        //   //   0.1 :
-        //   //   0.0001;
-        // })
-    );
 
-    console.log("clusters");
-    console.log(clusters);
+    // simulation.force("link",
+    //   d3.forceLink()
+    //     .id(function (d) { return d.id; } )
+    //     .distance(chart.linkDistance)
+    //     .strength(chart.useFixedAxis? 0.0000: chart.linkStrengh)
+    // );
+
+    // console.log("clusters");
+    // console.log(clusters);
   }
 
   function addAxis() {
@@ -250,6 +262,10 @@ var networkCanvasChart = function () {
     // console.log(zoom_transform.x, zoom_transform.k);
   }
 
+  chart.stop = function() {
+    if (simulation)
+      simulation.stop();
+  };
 
   chart.update = function(selection) {
     selection.each(function(graph) {
@@ -286,11 +302,11 @@ var networkCanvasChart = function () {
             }
           ) + 5
         ]).range([height, 0]);
-      rScale.domain(d3.extent(graph.nodes, function (d) { return d.count_followers_in_query; }))
+      rScale.domain(d3.extent(graph.nodes, chart.rAttr))
         .range(chart.radiusRange);
 
       graph.nodes.forEach(function (d) {
-        d.r = d.influential ? rScale(d.count_followers_in_query) : rScale(d.count_followers_in_query)/2;
+        d.r = rScale(chart.rAttr(d));
       });
 
       var canvasEle = d3.select(this).selectAll("canvas").data([graph]);
@@ -318,7 +334,8 @@ var networkCanvasChart = function () {
       svg.select("#tooltip").append("tspan").attr("id","y").attr("x",0).attr("dy","1.2em");
 
 
-      canvas = document.querySelector("canvas");
+      // canvas = document.querySelector("canvas");
+      canvas = selection.select("canvas").nodes()[0];
       context = canvas.getContext("2d");
       canvasEle.merge(canvasEnter)
         .style("margin-left", margin.left+"px")
@@ -358,20 +375,44 @@ var networkCanvasChart = function () {
 
       }
 
-
+      if (chart.useForceInABox) {
+        simulation
+          .force("group", forceInABox()
+            .nodes(chart.graph.nodes)
+            .links(chart.graph.links)
+            .strength(0.1)
+            .gravityOverall(0.05)
+            .template(chart.forceInABoxTemplate)
+            .groupBy(chart.forceInABoxAttr)
+            .size([width, height]));
+      } else {
+        simulation
+          .force("group", function () {});
+      }
       simulation
-          .force("link", d3.forceLink().id(function (d) { return d.id; } ).strength(chart.useFixedAxis? 0.0000: 0.5).distance(200))
+          .force("link", d3.forceLink().id(function (d) { return d.id; } )
+            .strength(function (l) {
+              if (chart.useFixedAxis) return 0;
+              if (chart.useForceInABox) {
+                if (l.source[chart.forceInABoxAttr]!==l.target[chart.forceInABoxAttr]) {
+                  return 0.01;
+                } else {
+                  return chart.linkStrengh;
+                }
+              } else {
+                return chart.linkStrengh;
+              }
+            }).distance(chart.linkDistance))
           //Better than forceCenter because I can control the strength
-
-          .force("x", d3.forceX(width/2).strength(0.1))
-          .force("y", d3.forceY(height/2).strength(0.1))
+          .force("x", d3.forceX(width/2).strength(chart.gravity))
+          .force("y", d3.forceY(height/2).strength(chart.gravity));
           // .force("center", d3.forceCenter(width / 2, height / 2))
-
           // .force("forceX", d3.forceCenter(width / 2, height / 2));
           // .force("forceY", d3.forceCenter(width / 2, height / 2));
 
+
       if (chart.collide===true)
-        simulation.force("collide", d3.forceCollide(function (d) { return d.r+1; }).iterations(4));
+        simulation.force("collide", d3.forceCollide(function (d) { return d.r+3; }).iterations(8));
       else
         simulation.force("collide", function () {});
 
@@ -381,14 +422,10 @@ var networkCanvasChart = function () {
         simulation.force("charge",  function () {});
       }
 
-
-      console.log("collide="+ chart.collide);
-      console.log(simulation.force("collide"));
-
       // if (error) throw error;
-      console.log("Clustering");
+      // console.log("Clustering");
       // netClustering.cluster(graph.nodes, graph.links);
-      console.log("done");
+      // console.log("done");
 
 
       updateNodes(graph.nodes);
@@ -527,13 +564,16 @@ var networkCanvasChart = function () {
           .attr("transform", "translate("+ node.x + "," + node.y +")")
           .select("#name")
           .style("font-size","200%")
-          .text(node["screen_name"]);
+          .text(nameAttr(node));
         svg.select("#tooltip")
           .select("#x")
           .text(chart.xTitle + "  " + node[chart.xAttr]);
-        svg.select("#tooltip")
-          .select("#y")
-          .text(chart.yTitle + "  " + node[chart.yAttr]);
+        if(chart.yTitle) {
+          svg.select("#tooltip")
+            .select("#y")
+            .text(chart.yTitle + "  " + node[chart.yAttr]);
+
+        }
 
         // console.log(node);
 
@@ -573,8 +613,6 @@ var networkCanvasChart = function () {
         svg.select("#tooltip").select("#name").text("");
         svg.select("#tooltip").select("#x").text("");
         svg.select("#tooltip").select("#y").text("");
-
-
       }
 
 
@@ -587,13 +625,14 @@ var networkCanvasChart = function () {
 
 
       function drawNode(d) {
-        if (HIDE_IMAGES) {
-          context.moveTo(d.x + d.r/2, d.y + d.r/2);
-          context.arc(d.x + d.r/2, d.y+ d.r/2, d.r, 0, 2 * Math.PI);
+        if (!chart.showImages) {
+          // context.moveTo(d.x + d.r/2, d.y + d.r/2);
+          // context.arc(d.x + d.r/2, d.y+ d.r/2, d.r, 0, 2 * Math.PI);
+          context.moveTo(d.x , d.y);
+          context.arc(d.x+d.r/2, d.y+d.r/2, d.r, 0, 2 * Math.PI);
+
         } else {
-
           // context.restore();
-
 
           context.moveTo(d.x + d.r, d.y+d.r);
           context.arc(d.x+d.r/2, d.y+d.r/2, d.r+2, 0, 2 * Math.PI);
@@ -605,7 +644,7 @@ var networkCanvasChart = function () {
       }// drawNode
 
       function drawPic(d) {
-        if (!HIDE_IMAGES) {
+        if (chart.showImages) {
           context.save();
           context.beginPath();
           context.arc(d.x + d.r/2, d.y+d.r/2, d.r, 0, Math.PI * 2, true);

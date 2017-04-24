@@ -1,16 +1,17 @@
-#networkChart {
+.scrollable {
 	position:relative;
 	width:100%;
+  display: none;
 }
 
-#networkChart svg {
+.scrollable svg {
   position: absolute;
   top: 0px;
   left: 0px;
   overflow: visible;
 }
 
-#networkChart svg text {
+.scrollable svg text {
   pointer-events: none;
 }
 

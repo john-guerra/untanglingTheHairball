@@ -28,12 +28,18 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <div class="scrollable">
-          <div id="networkChart"></div>
+        <div class="scrollable scrollable-hairball">
+          <div id="networkChartHair"></div>
+        </div>
+        <div class="scrollable scrollable-tips">
+          <div id="networkChartTips"></div>
         </div>
         <section>
           <h1>Untangling the Hairball</h1>
-          <h3>By John Alexis Guerra Gómez</h3>
+          <h4 class="small"><a href="http://johnguerra.co/" target="_blank"><strong>John Alexis Guerra Gómez</strong></a><br><small><span class="tiny"><a href="http://twitter.com/duto_guerra" target="_blank"> @duto_guerra</a></span></small></h4>
+          <p class="tiny"><a href="http://johnguerra.co/slides/untanglingTheHairball" target="_blank">http://johnguerra.co/slides/untanglingTheHairball</a></p>
+          <div class="left logo"><a href="http://www.uniandes.edu.co/"><img src="images/universidad_de_los_andes_logo@2x.png" alt="Los Andes University" class="logo"></a></div>
+          <div class="right logo"><a href="https://datascience.berkeley.edu/"><img src="images/UC_Berkeley_wordmark_cal_gold.png" alt="University Of California at Berkeley logo" class="logo"></a></div>
         </section>
         <section>
           <section>
@@ -74,12 +80,12 @@
             <h3>What about only the people followed the most by the people that talk #OpenVisConf?</h3>
           </section>
           <section>
-            <h3>mbostock<img src="images/mbostock.png" alt="mbostock twitter photo"></h3>
+            <h3>mbostock<img src="images/mbostock.jpg" alt="mbostock twitter photo" class="circle miniheadshot"></h3>
             <p class="fragment">He didn't tweet during OpenVis 2016</p><img src="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif" alt="Shakira gracias" class="fragment">
             <p class="fragment">What? were you busy doing d3v4?</p>
           </section>
           <section>
-            <h3>mbostock</h3>
+            <h3>mbostock<img src="images/mbostock.jpg" alt="mbostock twitter photo" class="circle miniheadshot"></h3>
             <p class="fragment">¡Gracias viejo!</p><img src="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif" alt="Shakira gracias" class="fragment">
             <p class="fragment">I should be following him</p>
           </section>
@@ -95,32 +101,32 @@
             </ul>
           </section>
           
-          <section step="allGraph" class="scroll">
+          <section scrollable="hairball" step="allGraph" class="scroll">
             <h3>State of the art netviz</h3><img src="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif" alt="Hairball spewing a cat" class="fragment">
           </section>
-          <section step="onlyCommunity" class="scroll">
+          <section scrollable="hairball" step="onlyCommunity" class="scroll">
             <h3>Filter 300!</h3><img src="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif" alt="Cat coughing" class="fragment">
           </section>
-          <section step="top300" class="scroll">
+          <section scrollable="hairball" step="top300" class="scroll">
             <h3>Only influentials!</h3><img src="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif" alt="Cat eating hair" class="fragment">
           </section>
-          <section step="clusters" class="scroll">
-            <h3>Communities</h3><img src="puss_in_boots_hairball.gif" alt="Cat eating hair" class="fragment">
+          <section scrollable="hairball" step="clusters" class="scroll">
+            <h3>Communities</h3><img src="images/puss_in_boots_hairball.gif" alt="Puss in boots hairball" class="fragment">
           </section>
-          <section step="clusters" class="scroll">
+          <section scrollable="hairball" step="clusters" class="scroll">
             <h2>Back to my question!</h2>
           </section>
-          <section step="fixedAxis" class="scroll">
+          <section scrollable="hairball" step="fixedAxis" class="scroll">
             <h4>Let's fix axis</h4>
             <p>Number of followers overall vs followers in #OpenVisConf</p>
           </section>
-          <section step="linksOnDemand" class="scroll">
+          <section scrollable="hairball" step="linksOnDemand" class="scroll">
             <h4>Links on demand</h4>
           </section>
-          <section step="addMoreNodes" class="scroll">
+          <section scrollable="hairball" step="addMoreNodes" class="scroll">
             <h4>Add back more nodes</h4>
           </section>
-          <section step="byCountOfTweets" class="scroll">
+          <section scrollable="hairball" step="byCountOfTweets" class="scroll">
             <h4>Number of tweets</h4>
           </section>
         </section>
@@ -131,88 +137,95 @@
           </section>
           <section data-background-image="images/Ben_and_Catherine.jpg"></section>
           <section>
-            <div class="left"><a href="https://www.cs.umd.edu/users/ben/index.html"><img src="images/munzner-2014-headshot-250.jpg" alt="Ben Shneiderman's headshot" class="circle">
-                <h4>Ben Shneiderman</h4></a></div>
-            <div class="right"><a href="http://hcil.umd.edu/catherine-plaisant/"><img src="images/munzner-2014-headshot-250.jpg" alt="Catherine Plaisant's headshot" class="circle">
-                <h4>Catherine Plaisant</h4></a></div>
             <p>
-              <h2 style="color:white" class="fragment">What are your tasks?</h2>
-              <h2 style="color:white" class="fragment">What are your users?</h2>
+              <h3 class="fragment">What are your tasks?</h3>
+              <h3 class="fragment">What are your users?</h3>
             </p>
+            <div class="left"><a href="https://www.cs.umd.edu/users/ben/index.html"><img src="images/ben_pic_fp_cropped.jpg" alt="Ben Shneiderman's headshot" class="circle headshot">
+                <h4>Ben Shneiderman</h4></a></div>
+            <div class="right"><a href="http://hcil.umd.edu/catherine-plaisant/"><img src="images/Catherine-photo-2017-croped-768x847.jpg" alt="Catherine Plaisant's headshot" class="circle headshot">
+                <h4>Catherine Plaisant</h4></a></div>
           </section>
           <section>
             <h2>Visualization Analysis and Design</h2>
             <div class="left">
               <div class="center"><a href="https://www.cs.ubc.ca/~tmm/vadbook/"><img src="images/vadcover.med.png" alt="Visualization Analysis and Design's Book Cover" class="center"></a></div><a href="https://www.cs.ubc.ca/~tmm/vadbook/" class="tiny">https://www.cs.ubc.ca/~tmm/vadbook/</a>
             </div>
-            <div class="right"><a href="https://www.cs.ubc.ca/~tmm/"><img src="images/munzner-2014-headshot-250.jpg" alt="Tamara Munzner's headshot" class="circle">
+            <div class="right"><a href="https://www.cs.ubc.ca/~tmm/"><img src="images/munzner-2014-headshot-250.jpg" alt="Tamara Munzner's headshot" class="circle headshot">
                 <h4>Tamara Munzner</h4></a></div>
           </section>
           <section><img src="images/Tamaras_why.png"><a href="http://www.cs.ubc.ca/~tmm/talks.html#vad16act" class="tiny">http://www.cs.ubc.ca/~tmm/talks.html#vad16act</a></section>
           <section>
-            <h2>Types of tasks</h2>
-            <ul>
-              <li>Overview</li>
-              <li>Query</li>
-            </ul>
+            <h2>NetViz tasks</h2>
+            <div class="left fragment">
+              <div style="height:500px; display:table-cell; vertical-align:middle;"><img style="margin:auto" src="images/overview_10k_nointer_cropped_just_network.png" alt="Overview style tasks" class="center"></div>
+              <h4>Overview</h4>
+            </div>
+            <div class="right fragment">
+              <div style="height:500px; display:table-cell; vertical-align:middle;"><img style="margin:auto" src="images/ego_centric_view.png" alt="Query style tasks" class="center"></div>
+              <h4>Query</h4>
+            </div>
           </section>
           <section class="demo">
-            <h2>Overview</h2><img src="images/overview_10k_full_cropped.png">
+            <h2>Overview</h2><img src="images/overview_10k_nointer_cropped_just_network.png">
           </section>
-          <section>
-            <h2>Tip1. Filter</h2><img src="images/rank_by_relevance1.png">
+          <section scrollable="tips" step="step0" class="scroll">
+            <h3>IEEEVIS Citation Network</h3>
+            <p>All authors citations 2015</p>
           </section>
-          <section>
-            <h2>Tip2 Select neighborhood</h2><img src="images/rank_by_relevance2.png">
+          <section scrollable="tips" step="filter" class="scroll">
+            <h3>Tip1. Filter</h3>
+            <p>Display only the most important nodes for your task (a core)</p>
           </section>
-          <section>
-            <h2>Tip3 Communities</h2>
-            <ul>
-              <li>Netclustering.js</li>
-              <li>Force in a box.js</li>
-            </ul>
+          <section scrollable="tips" step="neighborhood" class="scroll">
+            <h3>Tip2 Select neighborhood</h3>
+            <p>That core can be unconnected, so select also their neighborhood</p>
           </section>
-          <section>
-            <h2>Netclustering.js</h2><a href="https://github.com/john-guerra/netClusteringJs" class="tiny">https://github.com/john-guerra/netClusteringJs</a>
+          <section scrollable="tips" step="neighborhood" class="scroll">
+            <h3>Tip3 Communities</h3>
+            <p>Use community detection</p>
           </section>
-          <section>
-            <h2>Force in a box</h2><a href="https://github.com/john-guerra/forceInABox" class="tiny">https://github.com/john-guerra/forceInABox</a>
+          <section scrollable="tips" step="doNetClustering" class="scroll">
+            <h3>Netclustering.js</h3>
+            <pre><code data-trim data-noescape class="tiny">netClustering.cluster(nodes, links)
+</code></pre><a href="https://github.com/john-guerra/netClusteringJs" class="micro">https://github.com/john-guerra/netClusteringJs</a>
           </section>
-          
-          <section>
-            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_1.png">
+          <section scrollable="tips" step="forceInABoxTreemap" class="scroll">
+            <h3>Force in a box</h3>
+            <pre><code data-trim data-noescape class="tiny">simulation = d3.forceSimulation(nodes)
+  .force("group", forceInABox()
+    .nodes(nodes)
+    .links(links)
+    .size(width,height)
+  .force("link", d3.forceLink().links(links)
+    .strength(forceInABox.linkStrength))
+</code></pre>
+            <p>Distributes clusters on a treemap</p><a href="https://github.com/john-guerra/forceInABox" class="micro">https://github.com/john-guerra/forceInABox</a>
           </section>
-          <section>
-            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_2.png">
+          <section scrollable="tips" step="forceInABoxForce" class="scroll">
+            <h3>Force in a box</h3>
+            <p>Distributes clusters using forces</p><a href="https://github.com/john-guerra/forceInABox" class="micro">https://github.com/john-guerra/forceInABox</a>
           </section>
-          <section>
-            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_3.png">
-          </section>
-          <section>
-            <h2>Tip4 Navigate into clusters</h2><img src="images/jumpIntoCluster_4.png">
-          </section>
-          <section>
-            <h2>Tip5 Where am I?</h2><img src="images/nodeNavigator.png">
-          </section>
-          <section>
-            <h2>Use different layouts</h2><a href="http://johnguerra.co/viz/influentials/openvisconf/network.html" class="tiny">http://johnguerra.co/viz/influentials/openvisconf/network.html</a>
+          <section scrollable="tips" step="navigateIntoCluster" class="scroll">
+            <h3>Tip4 Navigate into clusters</h3>
           </section>
           <section>
             <h1>Query</h1>
-            <ul>
-              <li class="fragment">Tip6 Ego centric views</li>
-              <li class="fragment">Tip7 Expand on demand</li>
-              <li class="fragment">Tip8 Node pining</li>
-              <li class="fragment">Tip9 Filter on attributes</li>
-            </ul>
           </section>
           <section>
-            <iframe src="http://johnguerra.co/viz/networkExplorer/indexfb.html" class="demo"></iframe>
+            <div class="left">
+              <ul>
+                <li class="fragment">Tip6 Ego centric views</li>
+                <li class="fragment">Tip7 Expand on demand</li>
+                <li class="fragment">Tip8 Node pining</li>
+              </ul>
+            </div>
+            <div class="right"><img src="images/egodistance.gif" alt="Ego centric view demo"></div>
           </section>
         </section>
         <section>
           <section>
-            <h2>Other network visualizations</h2><a href="http://vistorian.net">http://vistorian.net</a>
+            <h2>Other network visualizations</h2><a href="http://networkcube.net">http://networkcube.net</a>
           </section>
         </section>
         <section>
@@ -233,7 +246,10 @@
     <script src="js/reveal.js"></script>
     <script src="js/d3.v4.min.js"></script>
     <script src="js/NetworkCanvasChart.js"></script>
-    <script src="js/scrollable_hairball.js"></script>
+    <script src="js/netClustering.js"></script>
+    <script src="js/forceInABoxv4.js"></script>
+    <script src="js/ScrollableHairball.js"></script>
+    <script src="js/ScrollableTips.js"></script>
     <script src="js/makeScrollable.js"></script>
     <script>
       Reveal.initialize({
