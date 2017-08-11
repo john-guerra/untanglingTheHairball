@@ -37,27 +37,33 @@ html
           div#networkChartTips
 
         section
-          h1 Untangling the Hairball
+          section
+            h1 Untangling the Hairball
 
-          h4.small
-            a(href='http://johnguerra.co/', target='_blank') #[strong John Alexis Guerra Gómez]
-            br
-            small
-              span.tiny
-                a(href='http://twitter.com/duto_guerra' , target='_blank')  @duto_guerra
+            h4.small
+              a(href='http://johnguerra.co/', target='_blank') #[strong John Alexis Guerra Gómez]
+              br
+              small
+                span.tiny
+                  a(href='http://twitter.com/duto_guerra' , target='_blank')  @duto_guerra
 
-          p.tiny
-            a(href='http://johnguerra.co/slides/untanglingTheHairball', target='_blank') http://johnguerra.co/slides/untanglingTheHairball
+            p.tiny
+              a(href='http://johnguerra.co/slides/untanglingTheHairball', target='_blank') http://johnguerra.co/slides/untanglingTheHairball
 
-          div.left.logo
-            a(href="http://www.uniandes.edu.co/")
-              img.logo(src="images/universidad_de_los_andes_logo@2x.png" alt="Los Andes University")
-          div.right.logo
-            a(href="https://datascience.berkeley.edu/")
-              img.logo(src="images/UC_Berkeley_wordmark_cal_gold.png" alt="University Of California at Berkeley logo")
+            div.left.logo
+              a(href="http://www.uniandes.edu.co/")
+                img.logo(src="images/universidad_de_los_andes_logo@2x.png" alt="Los Andes University")
+            div.right.logo
+              a(href="https://datascience.berkeley.edu/")
+                img.logo(src="images/UC_Berkeley_wordmark_cal_gold.png" alt="University Of California at Berkeley logo")
+
+
+          section(data-background-image="images/uniandes_monserrate.jpg" )
+            h3.fragment(style="color:white") It's Colombia not Columbia
 
 
         section
+
           section
             h2 I had a network
 
@@ -71,7 +77,7 @@ html
             h2 OpenVis 2014, 2015
             ul
               li.fragment Couldn't come
-              li.fragment so I followed through Twitter
+              li.fragment so I followed online
 
           section
             h2 Realizations:
@@ -81,35 +87,41 @@ html
               li.fragment Am I getting it all?
 
           section
-            h3 Who should I be following to get the best out of OpenVis Twitter discussions?
+            h3 Who should I be following to get the best out of OpenVis' Twitter discussions?
 
           section
-            h3 Well you could follow all the people that mentions #OpenvisConf
-            p TODO: show the list
+            h3 Well, you could follow all the people that mentions #OpenvisConf
+            ul
+              li.fragment 3000+ Tweets
+              li.fragment 784 Accounts
+
+            //- p TODO: show the list
 
           section
             h3 What about the interesting people that didn't talk #OpenvisConf during the conference?
 
           section
-            h3 What about only the people followed the most by the people that talk #OpenVisConf?
-
-          section
             h3 mbostock
               img.circle.miniheadshot(src="images/mbostock.jpg" alt="mbostock twitter photo")
             p.fragment He didn't tweet during OpenVis 2016
-            img.fragment(src="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif" alt="Shakira gracias")
-            p.fragment What? were you busy doing d3v4?
+            a(href="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif")
+              img.fragment(src="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif" alt="Shame game of thrones")
+            p.fragment What? were you busy doing d3v4? d3.express?
 
           section
             h3 mbostock
               img.circle.miniheadshot(src="images/mbostock.jpg" alt="mbostock twitter photo")
             p.fragment ¡Gracias viejo!
-            img.fragment(src="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif" alt="Shakira gracias")
+            a(href="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif")
+              img.fragment(src="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif" alt="Shakira gracias")
             p.fragment I should be following him
 
           section
+            h3 What about only the people followed the most by the people that talk #OpenVisConf?
+
+          section
             h3 Let's find the accounts that you (#openVisConf community) follows the most
-            img.fragment(src="https://media.giphy.com/media/oZ4oUV1xriqZi/giphy.gif" width="500px" alt="Mind blown gif")
+            img.fragment(src="https://38.media.tumblr.com/c3d426403af57e56a1425001a8c872d1/tumblr_n7vxlt231f1tfdmh2o1_400.gif" width="500px" alt="Colombia's celebration gif")
 
           section
             img(src="images/OpenVisConf_mostfollowed.png" alt="OpenVisConf most followed")
@@ -119,8 +131,9 @@ html
           section
             h2 Let's visualize it!
             ul
-              li.fragment Networks!
               li.fragment D3!
+              li.fragment Networks!
+
 
           //- section
           //-   h2 Prayed to Saint Bostock
@@ -129,15 +142,18 @@ html
           section.scroll(scrollable="hairball" step="allGraph")
             h3 State of the art netviz
             //- p.fragment hairball
-            img.fragment(src="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif", alt="Hairball spewing a cat")
+            a(href="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif")
+              img.fragment(src="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif", alt="Hairball spewing a cat")
 
           section.scroll(scrollable="hairball" step="onlyCommunity")
             h3 Filter 300!
-            img.fragment(src="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif", alt="Cat coughing")
+            a(href="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif")
+              img.fragment(src="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif", alt="Cat coughing")
 
           section.scroll(scrollable="hairball" step="top300")
             h3 Only influentials!
-            img.fragment(src="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif", alt="Cat eating hair")
+            a(href="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif")
+              img.fragment(src="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif", alt="Cat eating hair")
 
           section.scroll(scrollable="hairball" step="clusters")
             h3 Communities
@@ -270,9 +286,9 @@ html
             h3 Tip4 Navigate into clusters
 
 
-          //- section.scroll(scrollable="tips" step="step5")
-          //-   h3 Tip5 Use different layouts
-          //-   //- iframe.demo(src="http://johnguerra.co/viz/influentials/openvisconf/network.html")
+          section
+            h3 Tip5 Use different layouts
+            iframe.demo(src="http://blockbuilder.org/john-guerra/4db5024e00a82f10a2dc")
 
           section
             h1 Query
@@ -330,12 +346,15 @@ html
 
         section
           section
-            h2 Take home message
-            ul
-              li.fragment Define your tasks
-              li.fragment Rank by relevance
-              li.fragment Overview or Query?
-              li.fragment Beyond node-link
+            h3.demo Thank you!
+            div.left
+              ul
+                li Define your tasks
+                li Filter
+                li Overview or Query?
+                li Beyond node-link
+            div.right
+              iframe(width="100%" height="700px" src="http://localhost:3000/")
 
           section
             h2 Postdoc
@@ -350,7 +369,7 @@ html
     script(src="js/head.min.js")
     script(src="js/reveal.js")
     script(src="js/d3.v4.min.js")
-    script(src="js/NetworkCanvasChart.js")
+    script(src="js/networkCanvasChart.js")
     script(src="js/netClustering.js")
     script(src="js/forceInABoxv4.js")
     script(src="js/ScrollableHairball.js")

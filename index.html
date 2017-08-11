@@ -35,11 +35,16 @@
           <div id="networkChartTips"></div>
         </div>
         <section>
-          <h1>Untangling the Hairball</h1>
-          <h4 class="small"><a href="http://johnguerra.co/" target="_blank"><strong>John Alexis Guerra Gómez</strong></a><br><small><span class="tiny"><a href="http://twitter.com/duto_guerra" target="_blank"> @duto_guerra</a></span></small></h4>
-          <p class="tiny"><a href="http://johnguerra.co/slides/untanglingTheHairball" target="_blank">http://johnguerra.co/slides/untanglingTheHairball</a></p>
-          <div class="left logo"><a href="http://www.uniandes.edu.co/"><img src="images/universidad_de_los_andes_logo@2x.png" alt="Los Andes University" class="logo"></a></div>
-          <div class="right logo"><a href="https://datascience.berkeley.edu/"><img src="images/UC_Berkeley_wordmark_cal_gold.png" alt="University Of California at Berkeley logo" class="logo"></a></div>
+          <section>
+            <h1>Untangling the Hairball</h1>
+            <h4 class="small"><a href="http://johnguerra.co/" target="_blank"><strong>John Alexis Guerra Gómez</strong></a><br><small><span class="tiny"><a href="http://twitter.com/duto_guerra" target="_blank"> @duto_guerra</a></span></small></h4>
+            <p class="tiny"><a href="http://johnguerra.co/slides/untanglingTheHairball" target="_blank">http://johnguerra.co/slides/untanglingTheHairball</a></p>
+            <div class="left logo"><a href="http://www.uniandes.edu.co/"><img src="images/universidad_de_los_andes_logo@2x.png" alt="Los Andes University" class="logo"></a></div>
+            <div class="right logo"><a href="https://datascience.berkeley.edu/"><img src="images/UC_Berkeley_wordmark_cal_gold.png" alt="University Of California at Berkeley logo" class="logo"></a></div>
+          </section>
+          <section data-background-image="images/uniandes_monserrate.jpg">
+            <h3 style="color:white" class="fragment">It's Colombia not Columbia</h3>
+          </section>
         </section>
         <section>
           <section>
@@ -55,7 +60,7 @@
             <h2>OpenVis 2014, 2015</h2>
             <ul>
               <li class="fragment">Couldn't come</li>
-              <li class="fragment">so I followed through Twitter</li>
+              <li class="fragment">so I followed online</li>
             </ul>
           </section>
           <section>
@@ -67,48 +72,51 @@
             </ul>
           </section>
           <section>
-            <h3>Who should I be following to get the best out of OpenVis Twitter discussions?</h3>
+            <h3>Who should I be following to get the best out of OpenVis' Twitter discussions?</h3>
           </section>
           <section>
-            <h3>Well you could follow all the people that mentions #OpenvisConf</h3>
-            <p>TODO: show the list</p>
+            <h3>Well, you could follow all the people that mentions #OpenvisConf</h3>
+            <ul>
+              <li class="fragment">3000+ Tweets</li>
+              <li class="fragment">784 Accounts</li>
+            </ul>
           </section>
           <section>
             <h3>What about the interesting people that didn't talk #OpenvisConf during the conference?</h3>
           </section>
           <section>
-            <h3>What about only the people followed the most by the people that talk #OpenVisConf?</h3>
+            <h3>mbostock<img src="images/mbostock.jpg" alt="mbostock twitter photo" class="circle miniheadshot"></h3>
+            <p class="fragment">He didn't tweet during OpenVis 2016</p><a href="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif"><img src="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif" alt="Shame game of thrones" class="fragment"></a>
+            <p class="fragment">What? were you busy doing d3v4? d3.express?</p>
           </section>
           <section>
             <h3>mbostock<img src="images/mbostock.jpg" alt="mbostock twitter photo" class="circle miniheadshot"></h3>
-            <p class="fragment">He didn't tweet during OpenVis 2016</p><img src="https://media.giphy.com/media/Ob7p7lDT99cd2/giphy.gif" alt="Shakira gracias" class="fragment">
-            <p class="fragment">What? were you busy doing d3v4?</p>
-          </section>
-          <section>
-            <h3>mbostock<img src="images/mbostock.jpg" alt="mbostock twitter photo" class="circle miniheadshot"></h3>
-            <p class="fragment">¡Gracias viejo!</p><img src="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif" alt="Shakira gracias" class="fragment">
+            <p class="fragment">¡Gracias viejo!</p><a href="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif"><img src="https://media.giphy.com/media/gicr2SYcEBbNu/giphy.gif" alt="Shakira gracias" class="fragment"></a>
             <p class="fragment">I should be following him</p>
           </section>
           <section>
-            <h3>Let's find the accounts that you (#openVisConf community) follows the most</h3><img src="https://media.giphy.com/media/oZ4oUV1xriqZi/giphy.gif" width="500px" alt="Mind blown gif" class="fragment">
+            <h3>What about only the people followed the most by the people that talk #OpenVisConf?</h3>
+          </section>
+          <section>
+            <h3>Let's find the accounts that you (#openVisConf community) follows the most</h3><img src="https://38.media.tumblr.com/c3d426403af57e56a1425001a8c872d1/tumblr_n7vxlt231f1tfdmh2o1_400.gif" width="500px" alt="Colombia's celebration gif" class="fragment">
           </section>
           <section><img src="images/OpenVisConf_mostfollowed.png" alt="OpenVisConf most followed"></section>
           <section>
             <h2>Let's visualize it!</h2>
             <ul>
-              <li class="fragment">Networks!</li>
               <li class="fragment">D3!</li>
+              <li class="fragment">Networks!</li>
             </ul>
           </section>
           
           <section scrollable="hairball" step="allGraph" class="scroll">
-            <h3>State of the art netviz</h3><img src="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif" alt="Hairball spewing a cat" class="fragment">
+            <h3>State of the art netviz</h3><a href="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif"><img src="https://media.giphy.com/media/fPxvPxZLSUB3O/giphy.gif" alt="Hairball spewing a cat" class="fragment"></a>
           </section>
           <section scrollable="hairball" step="onlyCommunity" class="scroll">
-            <h3>Filter 300!</h3><img src="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif" alt="Cat coughing" class="fragment">
+            <h3>Filter 300!</h3><a href="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif"><img src="https://media.giphy.com/media/3o7TKpFpiw0XhgdPVK/giphy.gif" alt="Cat coughing" class="fragment"></a>
           </section>
           <section scrollable="hairball" step="top300" class="scroll">
-            <h3>Only influentials!</h3><img src="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif" alt="Cat eating hair" class="fragment">
+            <h3>Only influentials!</h3><a href="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif"><img src="https://media.giphy.com/media/UKnFvHUzc629q/giphy.gif" alt="Cat eating hair" class="fragment"></a>
           </section>
           <section scrollable="hairball" step="clusters" class="scroll">
             <h3>Communities</h3><img src="images/puss_in_boots_hairball.gif" alt="Puss in boots hairball" class="fragment">
@@ -210,6 +218,10 @@
             <h3>Tip4 Navigate into clusters</h3>
           </section>
           <section>
+            <h3>Tip5 Use different layouts</h3>
+            <iframe src="http://blockbuilder.org/john-guerra/4db5024e00a82f10a2dc" class="demo"></iframe>
+          </section>
+          <section>
             <h1>Query</h1>
           </section>
           <section>
@@ -241,13 +253,18 @@
         </section>
         <section>
           <section>
-            <h2>Take home message</h2>
-            <ul>
-              <li class="fragment">Define your tasks</li>
-              <li class="fragment">Rank by relevance</li>
-              <li class="fragment">Overview or Query?</li>
-              <li class="fragment">Beyond node-link</li>
-            </ul>
+            <h3 class="demo">Thank you!</h3>
+            <div class="left">
+              <ul>
+                <li>Define your tasks</li>
+                <li>Filter</li>
+                <li>Overview or Query?</li>
+                <li>Beyond node-link</li>
+              </ul>
+            </div>
+            <div class="right">
+              <iframe width="100%" height="700px" src="http://localhost:3000/"></iframe>
+            </div>
           </section>
           <section>
             <h2>Postdoc</h2>
@@ -260,7 +277,7 @@
     <script src="js/head.min.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/d3.v4.min.js"></script>
-    <script src="js/NetworkCanvasChart.js"></script>
+    <script src="js/networkCanvasChart.js"></script>
     <script src="js/netClustering.js"></script>
     <script src="js/forceInABoxv4.js"></script>
     <script src="js/ScrollableHairball.js"></script>

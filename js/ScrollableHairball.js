@@ -167,7 +167,7 @@ function ScrollableHairball() {
   var originalNodes;
 
   // Load data
-  d3.json("../data/"+ query+"NetworkClustered.json", function(error, _graph) {
+  d3.json("./data/"+ query+"NetworkClustered.json", function(error, _graph) {
     if (error) throw error;
     console.log("loaded openVisNetworkClustered.json");
     graph = _graph;

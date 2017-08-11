@@ -380,7 +380,7 @@ var networkCanvasChart = function () {
           .force("group", forceInABox()
             .nodes(chart.graph.nodes)
             .links(chart.graph.links)
-            .strength(0.1)
+            .strength(0.3)
             .gravityOverall(0.05)
             .template(chart.forceInABoxTemplate)
             .groupBy(chart.forceInABoxAttr)

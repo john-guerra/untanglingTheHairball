@@ -153,7 +153,7 @@ function ScrollableTips() {
   var originalNodes, originalLinks;
 
   // Load data
-  d3.json("../data/"+"citationsNetwork.json", function(error, _graph) {
+  d3.json("./data/"+"citationsNetwork.json", function(error, _graph) {
     if (error) throw error;
 
     console.log("loaded citationsNetwork.json");
